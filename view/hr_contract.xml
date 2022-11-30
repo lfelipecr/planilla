@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+
+		<record id="hr_contract_view_form_inherit_planilla" model="ir.ui.view">
+			<field name="name">hr_contract_view_form_inherit_planilla</field>
+			<field name="model">hr.contract</field>
+			<field name="inherit_id" ref="hr_contract.hr_contract_view_form"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//field[@name='structure_type_id']" position="after">
+					<field name="parametros_planilla"/>
+					<field name="parametros_viaje"/>
+				</xpath>
+
+				<xpath expr="//notebook" position="inside">
+					<page string="Parametros de planilla" attrs="{'invisible': [('parametros_planilla', '=', False)]}">
+						<group>
+							<group>
+								<field name="feriados"/>
+								<field name="noches"/>
+								<field name="locos"/>
+							</group>
+							<group></group>
+						</group>
+					</page>
+					
+					<page string="Parametros de viaje" attrs="{'invisible': [('parametros_viaje', '=', False)]}">
+						<group>
+							<group>
+								<field name="corto"/>
+								<field name="largo"/>
+								<field name="barco_corto"/>
+								<field name="barco_largo"/>
+							</group>
+							<group></group>
+						</group>
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+
+
+	</data>
+</odoo>

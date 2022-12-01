@@ -23,6 +23,85 @@
 					<field name="saldo_prestamo"/>
 				</xpath>
 
+				<xpath expr="//notebook/page[1]" position="before">
+					<page string="Viaticos">
+						<group col="4">
+							<group>
+								<field name="cant_cortos"/>
+							</group>
+							<group>
+								<div><field name="costo_cortos" readonly="1" force_save="1"/></div>
+							</group>
+							
+							<group>
+								<field name="cant_locos"/>
+							</group>
+							<group>
+								<div><field name="costo_locos" readonly="1" force_save="1"/></div>
+							</group>
+						</group>
+						
+						<group col="4">
+							<group>
+								<field name="cant_largos"/>
+							</group>
+							<group>
+								<div><field name="costo_largos" readonly="1" force_save="1"/></div>
+							</group>
+							
+							<group>
+								<field name="cant_noches"/>
+							</group>
+							<group>
+								<div><field name="costo_noches" readonly="1" force_save="1"/></div>
+							</group>
+						</group>
+						
+						<group col="4">
+							<group>
+								<field name="cant_bcortos"/>
+							</group>
+							<group>
+								<div><field name="costo_bcortos" readonly="1" force_save="1"/></div>
+							</group>
+							
+							<group>
+								<field name="cant_feriados"/>
+							</group>
+							<group>
+								<div><field name="costo_feriados" readonly="1" force_save="1"/></div>
+							</group>
+						</group>						
+						
+						<group col="4">
+							<group>
+								<field name="cant_blargos"/>
+							</group>
+							<group>
+								<div><field name="costo_blargos" readonly="1" force_save="1"/></div>
+							</group>
+						</group>
+
+						<group>
+							<group>
+								<field name="carga"/>
+								<field name="bonific"/>
+							</group>
+						</group>						
+					</page>
+					
+					<page string="Deducciones">
+						<group>
+							<group>
+								<field name="deduc_obrera"/>
+								<field name="prestamo"/>
+								<field name="ahorro"/>
+								<field name="otras_deduc"/>
+							</group>
+						</group>
+					</page>
+				</xpath>
+
 			</field>
 		</record>
 

@@ -3,19 +3,21 @@ from odoo import models, fields, api
 from odoo.exceptions import ValidationError
 
 
-class hr_contract_inherit_planilla(models.Model):
-    _inherit = "hr.contract"
+class planilla_viaticos(models.Model):
+    _name = "viaticos"
+    _description = "viaticos"
 
-    tipo_salario = fields.Selection([('horas', 'Por Horas'), ('fijo', 'Fijo')], string="Tipo Salario")
-    parametros_planilla = fields.Boolean("Parametros de planilla")
-    parametros_viaje = fields.Boolean("Parametros de viaje")
-
-    #planilla
+    name = fields.Char("Nombre", default="Viáticos")
     feriados = fields.Float("Feriados")
     noches = fields.Float("Noches")
     locos = fields.Float("Locos")
 
-    #viajes
+
+class planilla_rutas(models.Model):
+    _name = "rutas"
+    _description = "rutas"
+
+    name = fields.Char("Rutas", default="Rutas")
     corto = fields.Float("Ruta Corta")
     largo = fields.Float("Ruta Larga")
     barco_corto = fields.Float("Barco corto")

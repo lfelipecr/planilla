@@ -16,8 +16,12 @@
     "demo": [
     ],
     "data": [
+        'security/groups.xml',
+        'security/ir.model.access.csv',
+        'data/ini.xml',
         'view/hr_contract.xml',
         'view/hr_payslip.xml',
+        'view/planilla.xml',
     ],
     'css': [],
     'test': [],

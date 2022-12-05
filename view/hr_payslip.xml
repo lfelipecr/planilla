@@ -80,12 +80,17 @@
 							<group>
 								<div><field name="costo_blargos" readonly="1" force_save="1"/></div>
 							</group>
+							
+							<group>
+								<field name="otros_viajes"/>
+							</group>
 						</group>
 
 						<group>
 							<group>
 								<field name="carga"/>
 								<field name="bonific"/>
+								<field name="reintegros"/>
 							</group>
 						</group>						
 					</page>

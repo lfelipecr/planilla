@@ -8,52 +8,38 @@ class hr_payslip_inherit_planilla(models.Model):
 
     @api.onchange("cant_cortos")
     def change_cortos(self):
-        if len(self.contract_id):
-            self.costo_cortos = self.contract_id.corto * self.cant_cortos
-        else:
-            self.costo_cortos = 0
+        rutas = self.env['rutas'].search([], limit=1)
+        self.costo_cortos = rutas.corto * self.cant_cortos
 
     @api.onchange("cant_largos")
     def change_largos(self):
-        if len(self.contract_id):
-            self.costo_largos = self.contract_id.largo * self.cant_largos
-        else:
-            self.costo_largos = 0
+        rutas = self.env['rutas'].search([], limit=1)
+        self.costo_largos = rutas.largo * self.cant_largos
 
     @api.onchange("cant_bcortos")
     def change_bcortos(self):
-        if len(self.contract_id):
-            self.costo_bcortos = self.contract_id.barco_corto * self.cant_bcortos
-        else:
-            self.costo_bcortos = 0
+        rutas = self.env['rutas'].search([], limit=1)
+        self.costo_bcortos = rutas.barco_corto * self.cant_bcortos
 
     @api.onchange("cant_blargos")
     def change_blargos(self):
-        if len(self.contract_id):
-            self.costo_blargos = self.contract_id.barco_largo * self.cant_blargos
-        else:
-            self.costo_blargos = 0
+        rutas = self.env['rutas'].search([], limit=1)
+        self.costo_blargos = rutas.barco_largo * self.cant_blargos
 
     @api.onchange("cant_locos")
     def change_locos(self):
-        if len(self.contract_id):
-            self.costo_locos = self.contract_id.locos * self.cant_locos
-        else:
-            self.costo_locos = 0
+        viaticos = self.env['viaticos'].search([], limit=1)
+        self.costo_locos = viaticos.locos * self.cant_locos
 
     @api.onchange("cant_noches")
     def change_noches(self):
-        if len(self.contract_id):
-            self.costo_noches = self.contract_id.noches * self.cant_noches
-        else:
-            self.costo_noches = 0
+        viaticos = self.env['viaticos'].search([], limit=1)
+        self.costo_noches = viaticos.noches * self.cant_noches
 
     @api.onchange("cant_feriados")
     def change_feriados(self):
-        if len(self.contract_id):
-            self.costo_feriados = self.contract_id.feriados * self.cant_feriados
-        else:
-            self.costo_feriados = 0
+        viaticos = self.env['viaticos'].search([], limit=1)
+        self.costo_feriados = viaticos.feriados * self.cant_feriados
 
     codigo = fields.Integer(related="employee_id.codigo", string="Código Empleado")
     semana_pagar = fields.Integer("Semana a Pagar")
@@ -77,8 +63,11 @@ class hr_payslip_inherit_planilla(models.Model):
     cant_feriados = fields.Integer("Cant. Feriados")
     costo_feriados = fields.Float("Costo Feriados")
 
+    otros_viajes = fields.Float("Otros Viajes")
+
     carga = fields.Float("Carga/Descarga")
     bonific = fields.Float("Bonific.")
+    reintegros = fields.Float("Reintegros")
 
     #deducciones
     deduc_obrera = fields.Float("Deduc. Obrera")

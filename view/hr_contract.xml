@@ -10,12 +10,13 @@
 			<field name="arch" type="xml">
 
 				<xpath expr="//field[@name='structure_type_id']" position="after">
-					<field name="parametros_planilla"/>
-					<field name="parametros_viaje"/>
+					<field name="parametros_planilla" invisible="1"/>
+					<field name="parametros_viaje" invisible="1"/>
 				</xpath>
 
 				<xpath expr="//notebook" position="inside">
-					<page string="Parametros de planilla" attrs="{'invisible': [('parametros_planilla', '=', False)]}">
+					<!-- Se mueve al menú Nómina > viáticos -->
+					<page string="Parametros de planilla" invisible="1" attrs="{'invisible': [('parametros_planilla', '=', False)]}">
 						<group>
 							<group>
 								<field name="feriados"/>
@@ -26,7 +27,8 @@
 						</group>
 					</page>
 					
-					<page string="Parametros de viaje" attrs="{'invisible': [('parametros_viaje', '=', False)]}">
+					<!-- Se mueve al menú Nómina > rutas -->
+					<page string="Parametros de viaje" invisible="1" attrs="{'invisible': [('parametros_viaje', '=', False)]}">
 						<group>
 							<group>
 								<field name="corto"/>

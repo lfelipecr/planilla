@@ -12,6 +12,7 @@
         'hr',
         'hr_contract',
         'om_hr_payroll',
+        'barco',
      ],
     "demo": [
     ],
@@ -22,6 +23,8 @@
         'view/hr_contract.xml',
         'view/hr_payslip.xml',
         'view/planilla.xml',
+        'view/boleta.xml',
+        'view/transportes.xml',
     ],
     'css': [],
     'test': [],

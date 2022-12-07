@@ -3,6 +3,20 @@
 	<data>
 
 
+		<record id="om_hr_payroll_view_hr_payslip_tree_iherit_planilla" model="ir.ui.view">
+			<field name="name">om_hr_payroll_view_hr_payslip_tree_iherit_planilla</field>
+			<field name="model">hr.payslip</field>
+			<field name="inherit_id" ref="om_hr_payroll.view_hr_payslip_tree"/>
+			<field name="arch" type="xml">
+				
+				<xpath expr="//field[@name='company_id']" position="after">
+					<field name="total_pagar"/>
+				</xpath>
+				
+			</field>
+		</record>
+
+
 		<record id="om_hr_payroll_view_hr_payslip_form_iherit_planilla" model="ir.ui.view">
 			<field name="name">om_hr_payroll_view_hr_payslip_form_iherit_planilla</field>
 			<field name="model">hr.payslip</field>

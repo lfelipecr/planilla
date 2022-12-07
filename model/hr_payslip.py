@@ -41,6 +41,13 @@ class hr_payslip_inherit_planilla(models.Model):
         viaticos = self.env['viaticos'].search([], limit=1)
         self.costo_feriados = viaticos.feriados * self.cant_feriados
 
+    def get_total(self):
+        for rec in self:
+            rec.total_pagar = 0
+            for line in rec.line_ids:
+                if line.code == "TOTAL":
+                    rec.total_pagar = line.total
+
     codigo = fields.Integer(related="employee_id.codigo", string="Código Empleado")
     semana_pagar = fields.Integer("Semana a Pagar")
     saldo_prestamo = fields.Float("Saldo Préstamo")
@@ -74,3 +81,5 @@ class hr_payslip_inherit_planilla(models.Model):
     prestamo = fields.Float("Préstamo")
     ahorro = fields.Float("Ahorro")
     otras_deduc = fields.Float("Otras Deduc.")
+
+    total_pagar = fields.Float("Total", compute="get_total")

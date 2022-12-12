@@ -2,7 +2,7 @@
 <odoo>
 	<data>
 
-		<menuitem id="menu_planilla" name="Planilla" parent="om_hr_payroll.menu_hr_payroll_root" sequence="16"/>
+		<menuitem id="menu_planilla" name="Planilla" parent="om_hr_payroll.menu_hr_payroll_root" sequence="17"/>
 
 
 
@@ -69,7 +69,7 @@
 			<field name="res_id">1</field>
 		</record>
 
-		<menuitem id="menu_rutas" name="Rutas" parent="menu_planilla" action="action_rutas" sequence="22"/>
+		<menuitem id="menu_rutas" name="Costo Rutas" parent="menu_planilla" action="action_rutas" sequence="22"/>
 
 	</data>
 </odoo>

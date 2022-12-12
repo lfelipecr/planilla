@@ -57,9 +57,9 @@
 								
 								<group>
 									<group>
-										<field name="ruta" options="{'no_create': True}"/>
+										<field name="ruta2" options="{'no_create': True}"/>
 										<!--<field name="origen_destino"/>-->
-										<field name="precio" readonly="1" force_save="1"/>
+										<field name="precio"/>
 									</group>
 									<group>
 										<field name="precio_qq" readonly="1" force_save="1"/>
@@ -79,7 +79,58 @@
 			<field name="view_mode">tree,form</field>
 		</record>
  
-		<menuitem id="menu_boletas" name="Boletas" parent="barco.transporte" action="action_boletas" sequence="26"/>
+		<menuitem id="menu_boletas" name="Boletas" parent="om_hr_payroll.menu_hr_payroll_root" sequence="16"/>
+		<menuitem id="submenu_boletas" name="Boletas" parent="menu_boletas" action="action_boletas" sequence="1"/>
+
+
+
+
+
+
+
+
+
+
+
+		<record id="boleta_ruta_form" model="ir.ui.view">
+			<field name="name">boleta_ruta_form</field>
+			<field name="model">boleta_ruta</field>
+			<field name="arch" type="xml">
+				<form>
+					<sheet>
+						<group>
+							<group>
+								<field name="name" required="1"/>
+								<field name="tipo_ruta"/>
+								<field name="costo_ruta" readonly="1" force_save="1"/>
+							</group>
+							<group>
+								<field name="codigo" required="1"/>
+							</group>
+						</group>
+						
+						<notebook>
+							<page string="Productos">
+								<field name="productos">
+									<tree string="" editable="bottom">
+										<field name="name"/>
+										<field name="costo"/>
+									</tree>
+								</field>
+							</page>
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_boleta_rutas">
+			<field name="name">Rutas</field>
+			<field name="res_model">boleta_ruta</field>
+			<field name="view_mode">tree,form</field>
+		</record>
+
+		<menuitem id="menu_boleta_rutas" name="Rutas" parent="menu_boletas" action="action_boleta_rutas" sequence="2"/>
 		
 
 

@@ -53,17 +53,18 @@ class hr_payslip_inherit_planilla(models.Model):
         largos = 0
         bcortos = 0
         blargos = 0
-        boletas = self.env['boleta'].search([('date', '>=', self.date_from), ('date', '<=', self.date_to)])
-        print(boletas)
+        boletas = self.env['boleta'].search([('date', '>=', self.date_from), ('date', '<=', self.date_to), ('chofer', '=', self.employee_id.id)])
+
         for boleta in boletas:
-            if boleta.ruta.tipo_ruta == "corta":
+            if boleta.ruta2.tipo_ruta == "corta":
                 cortos = cortos + 1
-            if boleta.ruta.tipo_ruta == "larga":
+            if boleta.ruta2.tipo_ruta == "larga":
                 largos = largos + 1
-            if boleta.ruta.tipo_ruta == "bcorta":
+            if boleta.ruta2.tipo_ruta == "bcorta":
                 bcortos = bcortos + 1
-            if boleta.ruta.tipo_ruta == "blargo":
+            if boleta.ruta2.tipo_ruta == "blargo":
                 blargos = blargos + 1
+
         self.cant_cortos = cortos
         self.change_cortos()
         self.cant_largos = largos

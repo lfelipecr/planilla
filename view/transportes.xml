@@ -2,7 +2,7 @@
 <odoo>
 	<data>
 
-
+		<!--
 		<record id="barco_transportes_rutas_inherit_planilla" model="ir.ui.view">
 			<field name="name">barco_transportes_rutas_inherit_planilla</field>
 			<field name="model">transportes.rutas</field>
@@ -20,6 +20,7 @@
 				
 			</field>
 		</record>
+		-->
 
 	</data>
 </odoo>

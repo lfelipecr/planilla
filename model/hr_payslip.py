@@ -48,6 +48,31 @@ class hr_payslip_inherit_planilla(models.Model):
                 if line.code == "TOTAL":
                     rec.total_pagar = line.total
 
+    def get_boletas(self):
+        cortos = 0
+        largos = 0
+        bcortos = 0
+        blargos = 0
+        boletas = self.env['boleta'].search([('date', '>=', self.date_from), ('date', '<=', self.date_to)])
+        print(boletas)
+        for boleta in boletas:
+            if boleta.ruta.tipo_ruta == "corta":
+                cortos = cortos + 1
+            if boleta.ruta.tipo_ruta == "larga":
+                largos = largos + 1
+            if boleta.ruta.tipo_ruta == "bcorta":
+                bcortos = bcortos + 1
+            if boleta.ruta.tipo_ruta == "blargo":
+                blargos = blargos + 1
+        self.cant_cortos = cortos
+        self.change_cortos()
+        self.cant_largos = largos
+        self.change_largos()
+        self.cant_bcortos = bcortos
+        self.change_bcortos()
+        self.cant_blargos = blargos
+        self.change_blargos()
+
     codigo = fields.Integer(related="employee_id.codigo", string="Código Empleado")
     semana_pagar = fields.Integer("Semana a Pagar")
     saldo_prestamo = fields.Float("Saldo Préstamo")

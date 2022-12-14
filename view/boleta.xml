@@ -10,7 +10,8 @@
 				<tree>
 					<field name="name"/>
 					<field name="date"/>
-					<field name="placa"/>
+					<!--<field name="placa"/>-->
+					<field name="cuenta_analitica"/>
 					<field name="chofer"/>
 					<field name="num_boleta"/>
 					<field name="cliente"/>
@@ -30,7 +31,8 @@
 						<group>
 							<group>
 								<field name="date"/>
-								<field name="placa" options="{'no_create': True}"/>
+								<!--<field name="placa" options="{'no_create': True}"/>-->
+								<field name="cuenta_analitica" options="{'no_create': True}" required="1"/>
 								<field name="chofer" options="{'no_create': True}"/>
 								<field name="num_boleta" required="1"/>
 							</group>

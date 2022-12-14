@@ -25,11 +25,26 @@ class boleta(models.Model):
     def create(self, vals):
         rec = super(boleta, self).create(vals)
         rec.name = rec.id
+
+        product_id = self.env['product.product'].search([('product_tmpl_id', '=', rec.producto.id)], limit=1)
+
+        registro = self.env['account.analytic.line'].create({
+            'name': "Boleta " + str(rec.num_boleta),
+            'account_id': rec.cuenta_analitica.id,
+            'partner_id': rec.cliente.id,
+            'date': rec.date,
+            'amount': rec.total,
+            'unit_amount': 1,
+            'product_id': product_id.id,
+            'product_uom_id': product_id.uom_id.id,
+        })
+
         return rec
 
     name = fields.Char("Consecutivo")
     date = fields.Date("Fecha Entrada", default=datetime.today())
     placa = fields.Many2one("fleet.vehicle", string="Placa")
+    cuenta_analitica = fields.Many2one("account.analytic.account", string="Cuenta A.")
     chofer = fields.Many2one("hr.employee", string="Chofer")
     num_boleta = fields.Char("Num. Boleta")
     cliente = fields.Many2one("res.partner", string="Cliente")

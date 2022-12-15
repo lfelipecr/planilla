@@ -22,3 +22,4 @@ class planilla_rutas(models.Model):
     largo = fields.Float("Ruta Larga")
     barco_corto = fields.Float("Barco corto")
     barco_largo = fields.Float("Barco largo")
+    otras_rutas = fields.Float("Otras rutas")

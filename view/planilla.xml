@@ -54,6 +54,7 @@
 								<field name="largo"/>
 								<field name="barco_corto"/>
 								<field name="barco_largo"/>
+								<field name="otras_rutas"/>
 							</group>
 							<group></group>
 						</group>

@@ -90,11 +90,13 @@ class boleta_ruta(models.Model):
             self.costo_ruta = rutas.barco_corto
         if self.tipo_ruta == "blargo":
             self.costo_ruta = rutas.barco_largo
+        if self.tipo_ruta == "otras":
+            self.costo_ruta = rutas.otras_rutas
         if self.tipo_ruta == False:
             self.costo_ruta = 0
 
     name = fields.Char("Ruta")
     codigo = fields.Char("Código")
-    tipo_ruta = fields.Selection([('corta', 'Ruta Corta'), ('larga', 'Ruta Larga'), ('bcorta', 'Barco Corto'), ('blargo', 'Barco Largo')], string="Tipo Ruta")
+    tipo_ruta = fields.Selection([('corta', 'Ruta Corta'), ('larga', 'Ruta Larga'), ('bcorta', 'Barco Corto'), ('blargo', 'Barco Largo'), ('otras', 'Otras rutas')], string="Tipo Ruta")
     costo_ruta = fields.Float("Precio")
     productos = fields.One2many("boleta_ruta_producto", "ruta")

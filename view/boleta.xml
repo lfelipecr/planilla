@@ -2,6 +2,19 @@
 <odoo>
 	<data>	
 
+		<record id="boleta_search" model="ir.ui.view">
+			<field name="name">boleta_search</field>
+			<field name="model">boleta</field>
+			<field name="arch" type="xml">
+				<search string="Search">
+					<field name="cuenta_analitica"/>
+					<field name="chofer"/>
+					<field name="num_boleta"/>
+					<field name="cliente"/>
+					<field name="producto"/>
+				</search>
+			</field>
+		</record>
 
 		<record id="boleta_tree" model="ir.ui.view">
 			<field name="name">boleta_tree</field>

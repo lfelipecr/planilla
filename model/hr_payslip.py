@@ -133,6 +133,7 @@ class hr_payslip_inherit_planilla(models.Model):
     prestamo = fields.Float("Préstamo")
     ahorro = fields.Float("Ahorro")
     otras_deduc = fields.Float("Otras Deduc.")
+    adelantos = fields.Float("Adelantos")
 
     total_neto = fields.Float("Neto", compute="get_neto")
     total_viaticos = fields.Float("Viáticos", compute="get_viaticos")

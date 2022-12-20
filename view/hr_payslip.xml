@@ -134,6 +134,7 @@
 								<field name="prestamo"/>
 								<field name="ahorro"/>
 								<field name="otras_deduc"/>
+								<field name="adelantos"/>
 							</group>
 						</group>
 					</page>

@@ -26,7 +26,7 @@
 			<field name="arch" type="xml">
 
 				<xpath expr="//header" position="inside">
-					<button name="get_boletas" string="Obtener boletas" type="object"/>
+					<button name="get_boletas" string="Obtener boletas" states="draft" type="object"/>
 				</xpath>
 
 				<xpath expr="//group[1]" position="before">

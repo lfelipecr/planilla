@@ -10,5 +10,9 @@
             <field name="name">Rutas</field>
         </record>
 
+        <record model="hr_payslip_report" id="report_planilla1">
+            <field name="name">Planilla semanal</field>
+        </record>
+
     </data>
 </odoo>

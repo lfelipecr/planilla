@@ -72,7 +72,7 @@
 								<th name="" style="border: 1px solid"><strong>Zapatos</strong></th>
 								<th name="" style="border: 1px solid"><strong>Ahorro</strong></th>
 								<th name="" style="border: 1px solid"><strong>Prestamo</strong></th>
-								<th name="" style="border: 1px solid"><strong>Adelantos</strong></th>
+								<!--<th name="" style="border: 1px solid"><strong>Adelantos</strong></th>-->
 								<th name="" style="border: 1px solid"><strong>Pago total</strong></th>
 							</tr>
 						</thead>
@@ -94,7 +94,7 @@
 									<td style="border: 1px solid"><span t-field="planilla.zapatos"/></td>
 									<td style="border: 1px solid"><span t-field="planilla.ahorro"/></td>
 									<td style="border: 1px solid"><span t-field="planilla.prestamos"/></td>
-									<td style="border: 1px solid"><span t-field="planilla.adelantos"/></td>
+									<!--<td style="border: 1px solid"><span t-field="planilla.adelantos"/></td>-->
 									<td style="border: 1px solid"><span t-field="planilla.depositado"/></td>
 								</tr>
 								<t t-set="salario" t-value="salario + planilla.salario"/>
@@ -102,7 +102,7 @@
 								<t t-set="zapatos" t-value="zapatos + planilla.zapatos"/>
 								<t t-set="ahorro" t-value="ahorro + planilla.ahorro"/>
 								<t t-set="bonif" t-value="bonif + planilla.bonif"/>
-								<t t-set="adelantos" t-value="adelantos + planilla.adelantos"/>
+								<!--<t t-set="adelantos" t-value="adelantos + planilla.adelantos"/>-->
 								<t t-set="depositado" t-value="depositado + planilla.depositado"/>
 							</t>
 							<tr>
@@ -112,7 +112,7 @@
 								<td style="border: 1px solid"><span t-esc="zapatos"/></td>
 								<td style="border: 1px solid"><span t-esc="ahorro"/></td>
 								<td style="border: 1px solid"><span t-esc="prestamos"/></td>
-								<td style="border: 1px solid"><span t-esc="adelantos"/></td>
+								<!--<td style="border: 1px solid"><span t-esc="adelantos"/></td>-->
 								<td style="border: 1px solid"><span t-esc="depositado"/></td>
 							</tr>
 						</tbody>

@@ -181,7 +181,7 @@
 										<field name="zapatos"/>
 										<field name="ahorro"/>
 										<field name="prestamos"/>
-										<field name="adelantos"/>
+										<!--<field name="adelantos"/>-->
 										<field name="depositado"/>
 									</tree>
 								</field>

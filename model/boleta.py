@@ -6,6 +6,7 @@ from datetime import datetime
 
 class boleta(models.Model):
     _name = "boleta"
+    _inherit = ['mail.thread']
     _description = "Boleta"
 
     @api.onchange("producto", "peso_kg", "ruta2")
@@ -37,18 +38,19 @@ class boleta(models.Model):
             'unit_amount': 1,
             'product_id': product_id.id,
             'product_uom_id': product_id.uom_id.id,
+            
         })
 
         return rec
 
-    name = fields.Char("Consecutivo")
+    name = fields.Char("Consecutivo", tracking=True)
     date = fields.Date("Fecha Entrada", default=datetime.today())
     placa = fields.Many2one("fleet.vehicle", string="Placa")
-    cuenta_analitica = fields.Many2one("account.analytic.account", string="Cuenta A.")
+    cuenta_analitica = fields.Many2one("account.analytic.account", string="Cuenta A.", tracking=True)
     chofer = fields.Many2one("hr.employee", string="Chofer")
-    num_boleta = fields.Char("Num. Boleta")
-    cliente = fields.Many2one("res.partner", string="Cliente")
-    producto = fields.Many2one("product.template", string="Producto")
+    num_boleta = fields.Char("Num. Boleta", tracking=True)
+    cliente = fields.Many2one("res.partner", string="Cliente", tracking=True)
+    producto = fields.Many2one("product.template", string="Producto", tracking=True)
     #peso
     peso_kg = fields.Float("Peso Kg.")
     peso_qq = fields.Float("Peso qq.")

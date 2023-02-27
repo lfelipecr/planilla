@@ -44,10 +44,10 @@ class boleta(models.Model):
         return rec
 
     name = fields.Char("Consecutivo", tracking=True)
-    date = fields.Date("Fecha Entrada", default=datetime.today())
+    date = fields.Date("Fecha Entrada", default=datetime.today(), tracking=True)
     placa = fields.Many2one("fleet.vehicle", string="Placa")
     cuenta_analitica = fields.Many2one("account.analytic.account", string="Cuenta A.", tracking=True)
-    chofer = fields.Many2one("hr.employee", string="Chofer")
+    chofer = fields.Many2one("hr.employee", string="Chofer", tracking=True)
     num_boleta = fields.Char("Num. Boleta", tracking=True)
     cliente = fields.Many2one("res.partner", string="Cliente", tracking=True)
     producto = fields.Many2one("product.template", string="Producto", tracking=True)
@@ -60,12 +60,12 @@ class boleta(models.Model):
     deduccion = fields.Float("Deducción")
     #ruta
     ruta = fields.Many2one("transportes.rutas", string="Ruta")
-    ruta2 = fields.Many2one("boleta_ruta", string="Ruta")
+    ruta2 = fields.Many2one("boleta_ruta", string="Ruta", tracking=True)
     #origen_destino = fields.Char("Origen/Destino")
     precio = fields.Float("Precio")
     #totals
     precio_qq = fields.Float("Precio x qq.")
-    total = fields.Float("Total")
+    total = fields.Float("Total", tracking=True)
 
 
 class boleta_ruta_producto(models.Model):

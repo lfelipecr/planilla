@@ -195,6 +195,24 @@ class hr_payslip_report(models.Model):
                 'report': self.id,
             })
 
+    def planilla_to_excel(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Planilla semanal',
+            'view_mode': 'tree',
+            'res_model': 'hr_payslip_report_line',
+            'target': 'current',
+        }
+
+    def gastos_to_excel(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Gastos semanal',
+            'view_mode': 'tree',
+            'res_model': 'hr_payslip_report_gasto',
+            'target': 'current',
+        }
+
     name = fields.Char("Name")
     company = fields.Many2one("res.company", string="Company", default=get_company)
     date_from = fields.Date("De")
@@ -205,6 +223,7 @@ class hr_payslip_report(models.Model):
 
 class hr_payslip_report_line(models.Model):
     _name = "hr_payslip_report_line"
+    _order = "name asc"
 
     name = fields.Many2one("hr.employee", string="Empleado")
     cedula = fields.Char(related="name.identification_id")
@@ -221,6 +240,7 @@ class hr_payslip_report_line(models.Model):
 
 class hr_payslip_report_gasto(models.Model):
     _name = "hr_payslip_report_gasto"
+    _order = "name asc"
 
     name = fields.Many2one("hr.employee", string="Empleado")
     viajes_largos = fields.Integer("Viajes largos")

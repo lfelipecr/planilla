@@ -173,25 +173,33 @@ class hr_payslip_report(models.Model):
         self.env['hr_payslip_report_gasto'].search([('report', '=', self.id)]).unlink()
         gastos = self.env['hr.payslip'].search([('date_from', '>=', self.date_from), ('date_to', '<=', self.date_to)])
         for gasto in gastos:
+            """
             cant_largos = gasto.cant_largos + gasto.cant_blargos
             costo_largos = gasto.costo_largos + gasto.costo_blargos
+
+            cant_blargos
             viajes_cortos = gasto.cant_cortos + gasto.cant_bcortos
             monto_cortos = gasto.costo_cortos + gasto.costo_bcortos
+            """
 
             self.env['hr_payslip_report_gasto'].create({
                 'name': gasto.employee_id.id,
-                'viajes_largos': cant_largos,
-                'monto_largos': costo_largos,
-                'viajes_cortos': viajes_cortos,
-                'monto_cortos': monto_cortos,
+                'viajes_largos': gasto.cant_largos,
+                'monto_largos': gasto.costo_largos,
+                'viajes_barco_largos': gasto.cant_blargos,
+                'monto_barco_largos': gasto.costo_blargos,
+                'viajes_cortos': gasto.cant_cortos,
+                'monto_cortos': gasto.costo_cortos,
+                'viajes_barco_cortos': gasto.cant_bcortos,
+                'monto_barco_cortos': gasto.costo_bcortos,
                 'bodega_adm': 0,
-                'peajes': 0,
+                'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,
                 'feriados': gasto.costo_feriados,
                 'descarga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
-                'pago_total': (cant_largos + costo_largos + viajes_cortos + monto_cortos + gasto.costo_noches + gasto.costo_feriados + gasto.carga) - gasto.adelantos,
+                'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches + gasto.costo_feriados + gasto.carga) - gasto.adelantos,
                 'report': self.id,
             })
 
@@ -243,10 +251,19 @@ class hr_payslip_report_gasto(models.Model):
     _order = "name asc"
 
     name = fields.Many2one("hr.employee", string="Empleado")
+
     viajes_largos = fields.Integer("Viajes largos")
     monto_largos = fields.Float("Monto")
+
+    viajes_barco_largos = fields.Integer("Barco largos")
+    monto_barco_largos = fields.Float("Monto")
+
     viajes_cortos = fields.Integer("Viajes cortos")
     monto_cortos = fields.Float("Monto")
+
+    viajes_barco_cortos = fields.Integer("Barco cortos")
+    monto_barco_cortos = fields.Float("Monto")
+
     bodega_adm = fields.Float("Bodega adm")
     peajes = fields.Float("Peajes/Fact")
     noches = fields.Float("Noches")

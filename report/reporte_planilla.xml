@@ -151,10 +151,17 @@
 						<thead>
 							<tr>
 								<th name="" style="border: 1px solid"><strong>Nombre</strong></th>
+								
 								<th name="" style="border: 1px solid"><strong>Viajes largos</strong></th>
 								<th name="" style="border: 1px solid"><strong>Monto</strong></th>
+								<th name="" style="border: 1px solid"><strong>Barco largos</strong></th>
+								<th name="" style="border: 1px solid"><strong>Monto</strong></th>
+								
 								<th name="" style="border: 1px solid"><strong>Cortos</strong></th>
 								<th name="" style="border: 1px solid"><strong>Monto</strong></th>
+								<th name="" style="border: 1px solid"><strong>Barco Cortos</strong></th>
+								<th name="" style="border: 1px solid"><strong>Monto</strong></th>
+								
 								<th name="" style="border: 1px solid"><strong>Bodega adm</strong></th>
 								<th name="" style="border: 1px solid"><strong>Peajes/Fact</strong></th>
 								<th name="" style="border: 1px solid"><strong>Noches</strong></th>
@@ -166,7 +173,9 @@
 						</thead>
 						
 						<t t-set="monto_largos" t-value="0"/>
+						<t t-set="monto_blargos" t-value="0"/>
 						<t t-set="monto_cortos" t-value="0"/>
+						<t t-set="monto_bcortos" t-value="0"/>
 						<t t-set="peajes" t-value="0"/>
 						<t t-set="noches" t-value="0"/>
 						<t t-set="feriados" t-value="0"/>
@@ -178,10 +187,17 @@
 							<t t-foreach="lines" t-as="gasto">
 								<tr>
 									<td style="border: 1px solid"><span t-field="gasto.name"/></td>
+									
 									<td style="border: 1px solid"><span t-field="gasto.viajes_largos"/></td>
 									<td style="border: 1px solid"><span t-field="gasto.monto_largos"/></td>
+									<td style="border: 1px solid"><span t-field="gasto.viajes_barco_largos"/></td>
+									<td style="border: 1px solid"><span t-field="gasto.monto_barco_largos"/></td>
+									
 									<td style="border: 1px solid"><span t-field="gasto.viajes_cortos"/></td>
 									<td style="border: 1px solid"><span t-field="gasto.monto_cortos"/></td>
+									<td style="border: 1px solid"><span t-field="gasto.viajes_barco_cortos"/></td>
+									<td style="border: 1px solid"><span t-field="gasto.monto_barco_cortos"/></td>
+									
 									<td style="border: 1px solid"><span t-field="gasto.bodega_adm"/></td>
 									<td style="border: 1px solid"><span t-field="gasto.peajes"/></td>
 									<td style="border: 1px solid"><span t-field="gasto.noches"/></td>
@@ -191,7 +207,9 @@
 									<td style="border: 1px solid"><span t-field="gasto.pago_total"/></td>
 								</tr>
 								<t t-set="monto_largos" t-value="monto_largos + gasto.monto_largos"/>
+								<t t-set="monto_blargos" t-value="monto_blargos + gasto.monto_barco_largos"/>
 								<t t-set="monto_cortos" t-value="monto_cortos + gasto.monto_cortos"/>
+								<t t-set="monto_bcortos" t-value="monto_bcortos + gasto.monto_barco_cortos"/>
 								<t t-set="peajes" t-value="peajes + gasto.peajes"/>
 								<t t-set="noches" t-value="noches + gasto.noches"/>
 								<t t-set="feriados" t-value="feriados + gasto.feriados"/>
@@ -204,7 +222,11 @@
 								<td style="border: 1px solid"></td>
 								<td style="border: 1px solid"><span t-esc="monto_largos"/></td>
 								<td style="border: 1px solid"></td>
+								<td style="border: 1px solid"><span t-esc="monto_blargos"/></td>
+								<td style="border: 1px solid"></td>
 								<td style="border: 1px solid"><span t-esc="monto_cortos"/></td>
+								<td style="border: 1px solid"></td>
+								<td style="border: 1px solid"><span t-esc="monto_bcortos"/></td>
 								<td style="border: 1px solid"></td>
 								<td style="border: 1px solid"><span t-esc="peajes"/></td>
 								<td style="border: 1px solid"><span t-esc="noches"/></td>

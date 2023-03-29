@@ -10,9 +10,9 @@
 			<field name="arch" type="xml">
 				
 				<xpath expr="//field[@name='company_id']" position="after">
-					<field name="total_neto"/>
-					<field name="total_viaticos"/>
-					<field name="total_pagar"/>
+					<field name="total_neto" sum="Total Neto"/>
+					<field name="total_viaticos" sum="Total Viáticos"/>
+					<field name="total_pagar" sum="Total a pagar"/>
 				</xpath>
 				
 			</field>

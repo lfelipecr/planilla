@@ -45,26 +45,26 @@ class boleta(models.Model):
 
     name = fields.Char("Consecutivo", tracking=True)
     date = fields.Date("Fecha Entrada", default=datetime.today(), tracking=True)
-    placa = fields.Many2one("fleet.vehicle", string="Placa")
+    placa = fields.Many2one("fleet.vehicle", string="Placa", tracking=True)
     cuenta_analitica = fields.Many2one("account.analytic.account", string="Cuenta A.", tracking=True)
     chofer = fields.Many2one("hr.employee", string="Chofer", tracking=True)
     num_boleta = fields.Char("Num. Boleta", tracking=True)
     cliente = fields.Many2one("res.partner", string="Cliente", tracking=True)
     producto = fields.Many2one("product.template", string="Producto", tracking=True)
     #peso
-    peso_kg = fields.Float("Peso Kg.")
-    peso_qq = fields.Float("Peso qq.")
+    peso_kg = fields.Float("Peso Kg.", tracking=True)
+    peso_qq = fields.Float("Peso qq.", tracking=True)
     #otros
-    tipo = fields.Selection([('produccion', 'Producción'), ('importacion', 'Importación'), ('despacho', 'Despacho'), ('otros', 'Otros')], string="Tipo")
-    recargo = fields.Float("Recargo %")
-    deduccion = fields.Float("Deducción")
+    tipo = fields.Selection([('produccion', 'Producción'), ('importacion', 'Importación'), ('despacho', 'Despacho'), ('otros', 'Otros')], string="Tipo", tracking=True)
+    recargo = fields.Float("Recargo %", tracking=True)
+    deduccion = fields.Float("Deducción", tracking=True)
     #ruta
-    ruta = fields.Many2one("transportes.rutas", string="Ruta")
+    ruta = fields.Many2one("transportes.rutas", string="Ruta", tracking=True)
     ruta2 = fields.Many2one("boleta_ruta", string="Ruta", tracking=True)
     #origen_destino = fields.Char("Origen/Destino")
-    precio = fields.Float("Precio")
+    precio = fields.Float("Precio", tracking=True)
     #totals
-    precio_qq = fields.Float("Precio x qq.")
+    precio_qq = fields.Float("Precio x qq.", tracking=True)
     total = fields.Float("Total", tracking=True)
 
 

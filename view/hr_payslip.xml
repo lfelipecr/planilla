@@ -255,8 +255,14 @@
 					<field name="name"/>
 					<field name="viajes_largos"/>
 					<field name="monto_largos"/>
+					<field name="viajes_barco_largos"/>
+					<field name="monto_barco_largos"/>
+
 					<field name="viajes_cortos"/>
 					<field name="monto_cortos"/>
+					<field name="viajes_barco_cortos"/>
+					<field name="monto_barco_cortos"/>
+
 					<field name="bodega_adm"/>
 					<field name="peajes"/>
 					<field name="noches"/>

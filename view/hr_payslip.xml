@@ -192,20 +192,18 @@
 								<field name="gastos" readonly="1">
 									<tree>
 										<field name="name"/>
-										<field name="viajes_largos"/>
-										<field name="monto_largos"/>
-										<field name="viajes_barco_largos"/>
-										<field name="monto_barco_largos"/>
-										
 										<field name="viajes_cortos"/>
 										<field name="monto_cortos"/>
+										<field name="viajes_largos"/>
+										<field name="monto_largos"/>
 										<field name="viajes_barco_cortos"/>
 										<field name="monto_barco_cortos"/>
-										
 										<field name="bodega_adm"/>
+										<field name="otros_viajes"/>
+										<field name="feriados"/>
+										<field name="costo_locos"/>
 										<field name="peajes"/>
 										<field name="noches"/>
-										<field name="feriados"/>
 										<field name="descarga"/>
 										<field name="adelanto_barco"/>
 										<field name="pago_total"/>
@@ -253,20 +251,18 @@
 			<field name="arch" type="xml">
 				<tree>
 					<field name="name"/>
-					<field name="viajes_largos"/>
-					<field name="monto_largos"/>
-					<field name="viajes_barco_largos"/>
-					<field name="monto_barco_largos"/>
-
 					<field name="viajes_cortos"/>
 					<field name="monto_cortos"/>
+					<field name="viajes_largos"/>
+					<field name="monto_largos"/>
 					<field name="viajes_barco_cortos"/>
 					<field name="monto_barco_cortos"/>
-
 					<field name="bodega_adm"/>
+					<field name="otros_viajes"/>
+					<field name="feriados"/>
+					<field name="costo_locos"/>
 					<field name="peajes"/>
 					<field name="noches"/>
-					<field name="feriados"/>
 					<field name="descarga"/>
 					<field name="adelanto_barco"/>
 					<field name="pago_total"/>

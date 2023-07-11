@@ -193,9 +193,11 @@ class hr_payslip_report(models.Model):
                 'viajes_barco_cortos': gasto.cant_bcortos,
                 'monto_barco_cortos': gasto.costo_bcortos,
                 'bodega_adm': 0,
+                'otros_viajes': gasto.otros_viajes,
                 'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,
                 'feriados': gasto.costo_feriados,
+                'costo_locos': gasto.costo_locos,
                 'descarga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
@@ -263,6 +265,9 @@ class hr_payslip_report_gasto(models.Model):
 
     viajes_barco_cortos = fields.Integer("Barco cortos")
     monto_barco_cortos = fields.Float("Monto")
+
+    otros_viajes = fields.Float("Otros Viajes")
+    costo_locos = fields.Float("Costo Locos")
 
     bodega_adm = fields.Float("Bodega adm")
     peajes = fields.Float("Peajes/Fact")

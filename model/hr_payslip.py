@@ -157,7 +157,7 @@ class hr_payslip_report(models.Model):
                     salario = line.total
                 #if line.code == "TOTAL":
                 #    total = line.total
-            depositado = salario - planilla.otras_deduc - planilla.ahorro - planilla.prestamo
+            depositado = salario - planilla.otras_deduc + planilla.bonific - planilla.ahorro - planilla.prestamo - planilla.deduc_obrera
             self.env['hr_payslip_report_line'].create({
                 'name': planilla.employee_id.id,
                 'salario': salario,
@@ -192,16 +192,16 @@ class hr_payslip_report(models.Model):
                 'monto_cortos': gasto.costo_cortos,
                 'viajes_barco_cortos': gasto.cant_bcortos,
                 'monto_barco_cortos': gasto.costo_bcortos,
-                'bodega_adm': 0,
+                'bodega_adm': gasto.cant_otros,
                 'otros_viajes': gasto.otros_viajes,
                 'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,
                 'feriados': gasto.costo_feriados,
                 'costo_locos': gasto.costo_locos,
-                'descarga': gasto.carga,
+                'carga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
-                'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches + gasto.costo_feriados + gasto.carga) - gasto.adelantos,
+                'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches + gasto.costo_feriados + gasto.carga + gasto.cant_otros + gasto.otros_viajes + gasto.costo_locos) - gasto.adelantos,
                 'report': self.id,
             })
 
@@ -273,7 +273,7 @@ class hr_payslip_report_gasto(models.Model):
     peajes = fields.Float("Peajes/Fact")
     noches = fields.Float("Noches")
     feriados = fields.Float("Feriados")
-    descarga = fields.Float("Movimientos/Descarga apm")
+    carga = fields.Float("Carga/Descarga")
     adelanto_barco = fields.Char("Adelanto barco")
     adelanto = fields.Float("Adelanto")
     pago_total = fields.Float("Pago total")

@@ -10,7 +10,7 @@
 
 
         <record id="admin_planilla" model="res.groups">
-            <field name="name">Adminsitrador</field>
+            <field name="name">Administrador</field>
 			<field name="category_id" ref="planilla_categ"/>
         </record>
 

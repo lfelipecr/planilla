@@ -227,7 +227,7 @@
 
 
 
-
+	<!--Aqui crea las columnas para la vista de planilla/>-->
 
 		<record id="hr_payslip_report_line_tree" model="ir.ui.view">
 			<field name="name">hr_payslip_report_line_tree</field>
@@ -236,8 +236,8 @@
 				<tree>
 					<field name="name"/>
 					<field name="salario"/>
-					<field name="bonif"/>
-					<field name="zapatos"/>
+					<field name="bonif" />					
+ 					<field name="zapatos" string="Otras Deducciones"/>  
 					<field name="ahorro"/>
 					<field name="prestamos"/>
 					<field name="depositado"/>
@@ -245,6 +245,7 @@
 			</field>
 		</record>
 
+<!--Aqui crea las columnas para la vista de gastos/>-->
 		<record id="hr_payslip_report_gasto_tree" model="ir.ui.view">
 			<field name="name">hr_payslip_report_gasto_tree</field>
 			<field name="model">hr_payslip_report_gasto</field>
@@ -257,13 +258,13 @@
 					<field name="monto_largos"/>
 					<field name="viajes_barco_cortos"/>
 					<field name="monto_barco_cortos"/>
-					<field name="bodega_adm"/>
+					<field name="bodega_adm" string="Cant Otros"/>
 					<field name="otros_viajes"/>
 					<field name="feriados"/>
 					<field name="costo_locos"/>
-					<field name="peajes"/>
+					<field name="peajes" string="Reintegros"/>
 					<field name="noches"/>
-					<field name="descarga"/>
+					<field name="carga"/>
 					<field name="adelanto_barco"/>
 					<field name="pago_total"/>
 				</tree>

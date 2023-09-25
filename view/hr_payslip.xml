@@ -264,7 +264,7 @@
 					<field name="costo_locos"/>
 					<field name="peajes" string="Reintegros"/>
 					<field name="noches"/>
-					<field name="carga"/>
+					<field name="descarga"/>
 					<field name="adelanto_barco"/>
 					<field name="pago_total"/>
 				</tree>

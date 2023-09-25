@@ -179,7 +179,7 @@
 						<t t-set="peajes" t-value="0"/>
 						<t t-set="noches" t-value="0"/>
 						<t t-set="feriados" t-value="0"/>
-						<t t-set="descarga" t-value="0"/>
+						<t t-set="carga" t-value="0"/>
 						<t t-set="adelanto" t-value="0"/>
 						<t t-set="pago_total" t-value="0"/>
 						<tbody>

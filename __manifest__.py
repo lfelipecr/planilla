@@ -1,8 +1,8 @@
 # -*- coding: utf-8
 {
     "name": "Planilla",
-    "version": "1.0",
-    "author": "Francisco Villegas",
+    "version": "2023.09.29.01",
+    "author": "Big Cloud SRL",
     "category": "hr",
     "description": "Planilla",
     "website": "",

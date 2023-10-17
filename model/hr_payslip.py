@@ -192,7 +192,7 @@ class hr_payslip_report(models.Model):
                 'monto_cortos': gasto.costo_cortos,
                 'viajes_barco_cortos': gasto.cant_bcortos,
                 'monto_barco_cortos': gasto.costo_bcortos,
-                'bodega_adm': gasto.cant_otros,
+                'bodega_adm': gasto.costo_otros,
                 'otros_viajes': gasto.otros_viajes,
                 'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,

@@ -258,7 +258,9 @@
 					<field name="monto_largos"/>
 					<field name="viajes_barco_cortos"/>
 					<field name="monto_barco_cortos"/>
-					<field name="bodega_adm" string="Cant Otros"/>
+					<field name="viajes_barco_largos"/>
+					<field name="monto_barco_largos"/>
+					<field name="bodega_adm" string="Monto Otros"/>
 					<field name="otros_viajes"/>
 					<field name="feriados"/>
 					<field name="costo_locos"/>

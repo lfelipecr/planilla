@@ -240,6 +240,7 @@
  					<field name="zapatos" string="Otras Deducciones"/>  
 					<field name="ahorro"/>
 					<field name="prestamos"/>
+					<field name="deduccion"/>
 					<field name="depositado"/>
 				</tree>
 			</field>

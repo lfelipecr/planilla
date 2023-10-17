@@ -166,6 +166,7 @@ class hr_payslip_report(models.Model):
                 'bonif': planilla.bonific,
                 'depositado': depositado,
                 'zapatos': planilla.otras_deduc,
+                'deduccion': planilla.deduc_obrera ,
                 #'adelantos': planilla.adelantos,
                 'report': self.id,
             })
@@ -244,6 +245,7 @@ class hr_payslip_report_line(models.Model):
     bonif = fields.Float("Bonificaciones")
     zapatos = fields.Float("Zapatos")
     adelantos = fields.Float("Adelantos")
+    deduccion = fields.Float("Deduccion Obrera")
     depositado = fields.Float("Pago Total")
     report = fields.Many2one("hr_payslip_report")
 

@@ -119,14 +119,15 @@ class hr_payslip_inherit_planilla(models.Model):
     costo_locos = fields.Float("Costo Locos")
     cant_noches = fields.Integer("Cant. Noches")
     costo_noches = fields.Float("Costo Noches")
-    cant_feriados = fields.Integer("Cant. Feriados")
-    costo_feriados = fields.Float("Costo Feriados")
+    cant_feriados = fields.Integer("Cant. Domingos") #Este campo es donde se guarda los datos de los domingos trabajados
+    costo_feriados = fields.Float("Costo Domingos")
 
     otros_viajes = fields.Float("Otros Viajes")
 
     carga = fields.Float("Carga/Descarga")
     bonific = fields.Float("Bonific.")
     reintegros = fields.Float("Reintegros")
+    feriados  = fields.Float("Feriados") #aqui se guarda realmente la informacion de los feriados trabajados, se creo el 20/10/2023
 
     #deducciones
     deduc_obrera = fields.Float("Deduc. Obrera")
@@ -198,12 +199,13 @@ class hr_payslip_report(models.Model):
                 'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,
                 'feriados': gasto.costo_feriados,
+                'monto_feriados' : gasto.feriados,
                 'costo_locos': gasto.costo_locos,
                 'carga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
                 'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches +
-                               gasto.costo_feriados + gasto.carga + gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
+                               gasto.costo_feriados + gasto.carga + gasto.feriados +gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
                 'report': self.id,
             })
 
@@ -275,9 +277,10 @@ class hr_payslip_report_gasto(models.Model):
     bodega_adm = fields.Float("Bodega adm")
     peajes = fields.Float("Peajes/Fact")
     noches = fields.Float("Noches")
-    feriados = fields.Float("Feriados")
+    feriados = fields.Float("Domingos")
     carga = fields.Float("Carga/Descarga")
     adelanto_barco = fields.Char("Adelanto barco")
     adelanto = fields.Float("Adelanto")
     pago_total = fields.Float("Pago total")
+    monto_feriados = fields.Float("Feriados")
     report = fields.Many2one("hr_payslip_report")

@@ -123,6 +123,7 @@
 								<field name="carga"/>
 								<field name="bonific"/>
 								<field name="reintegros"/>
+								<field name="feriados"/>
 							</group>
 						</group>						
 					</page>
@@ -264,6 +265,7 @@
 					<field name="bodega_adm" string="Monto Otros"/>
 					<field name="otros_viajes"/>
 					<field name="feriados"/>
+					<field name="monto_feriados"/>
 					<field name="costo_locos"/>
 					<field name="peajes" string="Reintegros"/>
 					<field name="noches"/>

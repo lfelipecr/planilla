@@ -202,7 +202,8 @@ class hr_payslip_report(models.Model):
                 'carga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
-                'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches + gasto.costo_feriados + gasto.carga + gasto.cant_otros + gasto.otros_viajes + gasto.costo_locos) - gasto.adelantos,
+                'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches +
+                               gasto.costo_feriados + gasto.carga + gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
                 'report': self.id,
             })
 

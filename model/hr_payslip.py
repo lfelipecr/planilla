@@ -158,7 +158,7 @@ class hr_payslip_report(models.Model):
                     salario = line.total
                 #if line.code == "TOTAL":
                 #    total = line.total
-            depositado = salario - planilla.otras_deduc + planilla.bonific - planilla.ahorro - planilla.prestamo - planilla.deduc_obrera
+            depositado = salario - planilla.otras_deduc + planilla.feriados + planilla.bonific - planilla.ahorro - planilla.prestamo - planilla.deduc_obrera
             self.env['hr_payslip_report_line'].create({
                 'name': planilla.employee_id.id,
                 'salario': salario,
@@ -166,6 +166,7 @@ class hr_payslip_report(models.Model):
                 'ahorro': planilla.ahorro,
                 'bonif': planilla.bonific,
                 'depositado': depositado,
+                'feriados' : planilla.feriados,
                 'zapatos': planilla.otras_deduc,
                 'deduccion': planilla.deduc_obrera ,
                 #'adelantos': planilla.adelantos,
@@ -198,14 +199,14 @@ class hr_payslip_report(models.Model):
                 'otros_viajes': gasto.otros_viajes,
                 'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,
-                'feriados': gasto.costo_feriados,
+
                 'monto_feriados' : gasto.feriados,
                 'costo_locos': gasto.costo_locos,
                 'carga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
                 'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches +
-                               gasto.costo_feriados + gasto.carga + gasto.feriados +gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
+                               gasto.costo_feriados + gasto.carga  +gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
                 'report': self.id,
             })
 
@@ -249,6 +250,7 @@ class hr_payslip_report_line(models.Model):
     zapatos = fields.Float("Zapatos")
     adelantos = fields.Float("Adelantos")
     deduccion = fields.Float("Deduccion Obrera")
+    feriados  = fields.Float("Feriados")
     depositado = fields.Float("Pago Total")
     report = fields.Many2one("hr_payslip_report")
 

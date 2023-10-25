@@ -176,40 +176,42 @@
 						
 						<notebook>
 							<page string="Planillas">
-								<field name="planillas" readonly="1">
-									<tree string="">
-										<field name="name"/>
-										<field name="salario"/>
-										<field name="bonif"/>
-										<field name="zapatos"/>
-										<field name="ahorro"/>
-										<field name="prestamos"/>
-										<!--<field name="adelantos"/>-->
-										<field name="depositado"/>
-									</tree>
-								</field>
+								<field name="planillas" readonly="1"/>
+<!--								Aqui dejamos una sola vista para el calculo-->
+<!--&lt;!&ndash;									<tree string="">&ndash;&gt;-->
+<!--										<field name="name"/>-->
+<!--										<field name="salario"/>-->
+<!--										<field name="bonif"/>-->
+<!--										<field name="zapatos"/>-->
+<!--										<field name="ahorro"/>-->
+<!--										<field name="prestamos"/>-->
+<!--										&lt;!&ndash;<field name="adelantos"/>&ndash;&gt;-->
+<!--										<field name="depositado"/>-->
+<!--									</tree>-->
+<!--								</field>-->
 							</page>
 							<page string="Gastos">
-								<field name="gastos" readonly="1">
-									<tree>
-										<field name="name"/>
-										<field name="viajes_cortos"/>
-										<field name="monto_cortos"/>
-										<field name="viajes_largos"/>
-										<field name="monto_largos"/>
-										<field name="viajes_barco_cortos"/>
-										<field name="monto_barco_cortos"/>
-										<field name="bodega_adm"/>
-										<field name="otros_viajes"/>
-										<field name="feriados"/>
-										<field name="costo_locos"/>
-										<field name="peajes"/>
-										<field name="noches"/>
-										<field name="carga"/>
-										<field name="adelanto_barco"/>
-										<field name="pago_total"/>
-									</tree>
-								</field>
+								<field name="gastos" readonly="1"/>
+<!--								Aqui dejamos una sola vista para el calculo del reporte de planillas-->
+<!--									<tree>-->
+<!--										<field name="name"/>-->
+<!--										<field name="viajes_cortos"/>-->
+<!--										<field name="monto_cortos"/>-->
+<!--										<field name="viajes_largos"/>-->
+<!--										<field name="monto_largos"/>-->
+<!--										<field name="viajes_barco_cortos"/>-->
+<!--										<field name="monto_barco_cortos"/>-->
+<!--										<field name="bodega_adm"/>-->
+<!--										<field name="otros_viajes"/>-->
+<!--										<field name="feriados"/>-->
+<!--										<field name="costo_locos"/>-->
+<!--										<field name="peajes"/>-->
+<!--										<field name="noches"/>-->
+<!--										<field name="carga"/>-->
+<!--										<field name="adelanto_barco"/>-->
+<!--										<field name="pago_total"/>-->
+<!--									</tree>-->
+<!--								</field>-->
 							</page>
 						</notebook>
 					</sheet>
@@ -240,6 +242,7 @@
 					<field name="bonif" />					
  					<field name="zapatos" string="Otras Deducciones"/>  
 					<field name="ahorro"/>
+					<field name="monto_feriados"/>
 					<field name="prestamos"/>
 					<field name="deduccion"/>
 					<field name="depositado"/>
@@ -265,7 +268,7 @@
 					<field name="bodega_adm" string="Monto Otros"/>
 					<field name="otros_viajes"/>
 					<field name="feriados"/>
-					<field name="monto_feriados"/>
+
 					<field name="costo_locos"/>
 					<field name="peajes" string="Reintegros"/>
 					<field name="noches"/>

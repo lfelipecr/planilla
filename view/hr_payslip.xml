@@ -242,7 +242,7 @@
 					<field name="bonif" />					
  					<field name="zapatos" string="Otras Deducciones"/>  
 					<field name="ahorro"/>
-					<field name="monto_feriados"/>
+					<field name="feriados"/>
 					<field name="prestamos"/>
 					<field name="deduccion"/>
 					<field name="depositado"/>

@@ -97,6 +97,7 @@ class hr_payslip_inherit_planilla(models.Model):
         self.change_blargos()
         self.cant_otros = otras
         self.change_otros()
+        self.change_feriados()
 
     codigo = fields.Integer(related="employee_id.codigo", string="Código Empleado")
     semana_pagar = fields.Integer("Semana a Pagar")
@@ -158,7 +159,7 @@ class hr_payslip_report(models.Model):
                     salario = line.total
                 #if line.code == "TOTAL":
                 #    total = line.total
-            depositado = salario - planilla.otras_deduc + planilla.feriados + planilla.bonific - planilla.ahorro - planilla.prestamo - planilla.deduc_obrera
+            depositado = salario + planilla.feriados + planilla.bonific - planilla.otras_deduc - planilla.ahorro - planilla.prestamo - planilla.deduc_obrera
             self.env['hr_payslip_report_line'].create({
                 'name': planilla.employee_id.id,
                 'salario': salario,
@@ -168,8 +169,7 @@ class hr_payslip_report(models.Model):
                 'depositado': depositado,
                 'feriados' : planilla.feriados,
                 'zapatos': planilla.otras_deduc,
-                'deduccion': planilla.deduc_obrera ,
-                #'adelantos': planilla.adelantos,
+                'deduccion': planilla.deduc_obrera,
                 'report': self.id,
             })
 
@@ -199,14 +199,13 @@ class hr_payslip_report(models.Model):
                 'otros_viajes': gasto.otros_viajes,
                 'peajes': gasto.reintegros,
                 'noches': gasto.costo_noches,
-
-                'monto_feriados' : gasto.feriados,
+                'feriados' : gasto.costo_feriados,
                 'costo_locos': gasto.costo_locos,
                 'carga': gasto.carga,
                 'adelanto_barco': "(" + str(gasto.adelantos) + ")",
                 'adelanto': gasto.adelantos,
                 'pago_total': (gasto.costo_largos + gasto.costo_blargos + gasto.costo_cortos + gasto.costo_bcortos + gasto.costo_noches +
-                               gasto.costo_feriados + gasto.carga  +gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
+                               gasto.costo_feriados + gasto.carga  + gasto.costo_otros + gasto.otros_viajes + gasto.costo_locos + gasto.reintegros) - gasto.adelantos,
                 'report': self.id,
             })
 
@@ -260,22 +259,16 @@ class hr_payslip_report_gasto(models.Model):
     _order = "name asc"
 
     name = fields.Many2one("hr.employee", string="Empleado")
-
     viajes_largos = fields.Integer("Viajes largos")
     monto_largos = fields.Float("Monto")
-
     viajes_barco_largos = fields.Integer("Barco largos")
     monto_barco_largos = fields.Float("Monto")
-
     viajes_cortos = fields.Integer("Viajes cortos")
     monto_cortos = fields.Float("Monto")
-
     viajes_barco_cortos = fields.Integer("Barco cortos")
     monto_barco_cortos = fields.Float("Monto")
-
     otros_viajes = fields.Float("Otros Viajes")
     costo_locos = fields.Float("Costo Locos")
-
     bodega_adm = fields.Float("Bodega adm")
     peajes = fields.Float("Peajes/Fact")
     noches = fields.Float("Noches")

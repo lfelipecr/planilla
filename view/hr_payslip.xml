@@ -144,18 +144,6 @@
 			</field>
 		</record>
 
-
-
-
-
-
-
-
-
-
-
-
-
 		<record id="hr_payslip_report_form" model="ir.ui.view">
 			<field name="name">hr_payslip_report_form</field>
 			<field name="model">hr_payslip_report</field>
@@ -227,9 +215,6 @@
 		<menuitem id="menu_reporte_planilla" name="Reporte planilla" parent="om_hr_payroll.menu_hr_payroll_root" action="report_planilla_act" sequence="11"/>
 
 
-
-
-
 	<!--Aqui crea las columnas para la vista de planilla/>-->
 
 		<record id="hr_payslip_report_line_tree" model="ir.ui.view">
@@ -268,7 +253,6 @@
 					<field name="bodega_adm" string="Monto Otros"/>
 					<field name="otros_viajes"/>
 					<field name="feriados"/>
-
 					<field name="costo_locos"/>
 					<field name="peajes" string="Reintegros"/>
 					<field name="noches"/>

@@ -4,10 +4,6 @@
 
 		<menuitem id="menu_planilla" name="Planilla" parent="om_hr_payroll.menu_hr_payroll_root" sequence="17"/>
 
-
-
-
-	
 		
 		<record id="viaticos_form" model="ir.ui.view">
 			<field name="name">viaticos_form</field>
@@ -38,10 +34,6 @@
 		<menuitem id="menu_viaticos" name="Viáticos" parent="menu_planilla" action="action_viaticos" sequence="21"/>
 		
 
-
-
-
-		
 		<record id="rutas_form" model="ir.ui.view">
 			<field name="name">rutas_form</field>
 			<field name="model">rutas</field>

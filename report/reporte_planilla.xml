@@ -71,6 +71,7 @@
 								<th name="" style="border: 1px solid"><strong>Bonificaciones</strong></th>
 								<th name="" style="border: 1px solid"><strong>Zapatos</strong></th>
 								<th name="" style="border: 1px solid"><strong>Ahorro</strong></th>
+								<th name="" style="border: 1px solid"><strong>Feriados</strong></th>
 								<th name="" style="border: 1px solid"><strong>Prestamo</strong></th>
 								<!--<th name="" style="border: 1px solid"><strong>Adelantos</strong></th>-->
 								<th name="" style="border: 1px solid"><strong>Pago total</strong></th>
@@ -79,6 +80,7 @@
 						
 						<t t-set="salario" t-value="0"/>
 						<t t-set="prestamos" t-value="0"/>
+						<t t-set="feriados" t-value="0"/>
 						<t t-set="ahorro" t-value="0"/>
 						<t t-set="zapatos" t-value="0"/>
 						<t t-set="bonif" t-value="0"/>
@@ -93,12 +95,14 @@
 									<td style="border: 1px solid"><span t-field="planilla.bonif"/></td>
 									<td style="border: 1px solid"><span t-field="planilla.zapatos"/></td>
 									<td style="border: 1px solid"><span t-field="planilla.ahorro"/></td>
+									<td style="border: 1px solid"><span t-field="planilla.feriados"/></td>
 									<td style="border: 1px solid"><span t-field="planilla.prestamos"/></td>
 									<!--<td style="border: 1px solid"><span t-field="planilla.adelantos"/></td>-->
 									<td style="border: 1px solid"><span t-field="planilla.depositado"/></td>
 								</tr>
 								<t t-set="salario" t-value="salario + planilla.salario"/>
 								<t t-set="prestamos" t-value="prestamos + planilla.prestamos"/>
+								<t t-set="feriados" t-value="feriados + planilla.feriados"/>
 								<t t-set="zapatos" t-value="zapatos + planilla.zapatos"/>
 								<t t-set="ahorro" t-value="ahorro + planilla.ahorro"/>
 								<t t-set="bonif" t-value="bonif + planilla.bonif"/>
@@ -111,6 +115,7 @@
 								<td style="border: 1px solid"><span t-esc="bonif"/></td>
 								<td style="border: 1px solid"><span t-esc="zapatos"/></td>
 								<td style="border: 1px solid"><span t-esc="ahorro"/></td>
+								<td style="border: 1px solid"><span t-esc="feriados"/></td>
 								<td style="border: 1px solid"><span t-esc="prestamos"/></td>
 								<!--<td style="border: 1px solid"><span t-esc="adelantos"/></td>-->
 								<td style="border: 1px solid"><span t-esc="depositado"/></td>
@@ -118,14 +123,7 @@
 						</tbody>
 					</table>
 					
-					
-					
-					
-					
 					<p style="page-break-after:always;">   </p>
-					
-					
-					
 					
 					
 					<div class="row mt32 mb32">

@@ -38,7 +38,6 @@ class boleta(models.Model):
             'unit_amount': 1,
             'product_id': product_id.id,
             'product_uom_id': product_id.uom_id.id,
-            
         })
 
         return rec
